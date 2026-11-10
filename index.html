@@ -107,7 +107,7 @@
 /* New opening: an editorial food-film title card, with no swipe or scroll gate */
 .cinema-intro{background:#111b13;transition:opacity .48s ease,visibility .48s ease;touch-action:pan-y}
 .cinema-intro.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
-.cinema-backdrop{filter:brightness(.56) saturate(.88);animation:reinaPhotoReveal 2.35s cubic-bezier(.2,.7,.2,1) both}
+.cinema-backdrop{filter:brightness(.56) saturate(.88);animation:reinaPhotoReveal 1.4s ease-out both;will-change:transform,opacity}
 .cinema-vignette{background:linear-gradient(90deg,rgba(7,17,10,.86) 0%,rgba(7,17,10,.55) 48%,rgba(7,17,10,.18) 100%),linear-gradient(0deg,rgba(7,17,10,.5),transparent 45%)}
 .cinema-content{width:min(1000px,88vw);padding:clamp(26px,6vw,70px) 0;text-align:left;animation:none}
 .cinema-overline{justify-content:flex-start;gap:12px;color:#e2eea1;font-size:9px;letter-spacing:.3em;animation:reinaTextIn .55s .08s both}
@@ -130,7 +130,7 @@
 .cinema-enter{display:inline-flex;align-items:center;gap:22px;padding:13px 18px;border-radius:2px;background:var(--lime);color:#17291f;border:1px solid var(--lime);font:10px var(--mono);letter-spacing:.1em}
 .cinema-enter:hover{background:#fff;color:#17291f;transform:translateY(-2px)}
 .cinema-progress{height:2px;background:#ffffff24}
-.cinema-progress span{background:var(--lime);animation:reinaProgress 2.25s linear both}
+.cinema-progress span{background:var(--lime);animation:reinaProgress 1.45s linear both}
 @keyframes reinaPhotoReveal{from{transform:scale(1.12);filter:brightness(.25) saturate(.65);opacity:.65}to{transform:scale(1);filter:brightness(.56) saturate(.88);opacity:1}}
 @keyframes reinaTextIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes reinaTitleIn{from{opacity:0;transform:translateY(42px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
@@ -358,8 +358,8 @@ const leaveIntro=()=>{
  setTimeout(()=>cinemaIntro.remove(),550);
 };
 // Automatically clear the title card; a separate failsafe prevents it trapping the page.
-introTimer=setTimeout(leaveIntro,2250);
-introFailsafe=setTimeout(()=>{if(cinemaIntro?.isConnected)cinemaIntro.remove()},3200);
+introTimer=setTimeout(leaveIntro,1450);
+introFailsafe=setTimeout(()=>{if(cinemaIntro?.isConnected)cinemaIntro.remove()},2050);
 document.getElementById('cinemaEnter')?.addEventListener('click',leaveIntro);
 cinemaIntro?.addEventListener('click',e=>{if(e.target===cinemaIntro)leaveIntro()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cinemaIntro?.isConnected)leaveIntro()});
