@@ -75,17 +75,41 @@
 @media(max-width:560px){.nav{top:7px;margin:7px 7px 0;border-radius:14px;padding:12px 13px}.hero:after{inset:8px 8px 12px;border-radius:20px}.hero-photo{border-top-right-radius:85px}.photo-frame{border-top-right-radius:85px}.cinema-content{padding:28px 8px}.cinema-monogram{width:88px;height:88px;font-size:44px;margin:24px auto 18px}.cinema-bottom{flex-direction:column;gap:16px;margin-top:32px;font-size:8px}.cinema-content h2{font-size:clamp(43px,12vw,64px)}.booking-card{border-radius:20px}}
 @media(prefers-reduced-motion:reduce){.cinema-intro,.cinema-content,.cinema-progress span,.cinema-monogram:after,.cinema-backdrop,.hero-content,.hero-visual,.hero-photo img,.hero-stamp{animation:none!important;transition:none!important}.cinema-intro{display:none}}
 
+
+/* LA REINA — refined, faster opening and more distinctive editorial finish */
+.cinema-intro{transition:opacity .55s cubic-bezier(.2,.75,.25,1),visibility .55s}
+.cinema-intro.is-leaving{opacity:0;visibility:hidden}
+.cinema-backdrop{animation:foodOdyssey 3.2s cubic-bezier(.2,.7,.2,1) both}
+.cinema-intro:before{animation:none;opacity:.72}
+.cinema-grain,.cinema-beam,.cinema-orbit,.cinema-side,.cinema-card{display:none!important}
+.cinema-content{animation:none}
+.cinema-overline{animation:lineIn .45s .05s both;letter-spacing:.28em}
+.cinema-monogram{animation:monogramDrop .65s .1s cubic-bezier(.16,1,.3,1) both;opacity:1}
+.cinema-monogram:before,.cinema-monogram:after{animation:none}
+.cinema-rule{animation:ruleExpand .55s .25s forwards}
+.cinema-pretitle{animation:letterReveal .45s .35s forwards}
+.cinema-line span{animation:titleRise .65s cubic-bezier(.16,1,.3,1) forwards}
+.cinema-line:nth-child(1) span{animation-delay:.35s}
+.cinema-line:nth-child(2) span{animation-delay:.52s}
+.cinema-bottom{animation:lineIn .45s .85s forwards;margin-top:24px}
+.cinema-progress span{animation:progressRun 3.2s linear both}
+.contact-line a{border-bottom:1px solid rgba(23,41,31,.35);padding:4px 0;transition:border-color .2s,opacity .2s}
+.contact-line a:hover{border-color:var(--ink);opacity:.72}
+.hero h1 em{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:.075em;text-underline-offset:.12em}
+.service-card{transition:background .3s,color .3s,transform .3s}
+.service-card:hover{transform:translateY(-5px)}
+.gallery-item img{transition:transform .85s cubic-bezier(.2,.7,.2,1),filter .4s}
+.booking-card{position:relative;overflow:hidden}
+.booking-card:before{content:"LR";position:absolute;right:18px;top:10px;font:italic 52px var(--serif);color:rgba(37,75,55,.075);pointer-events:none}
+@media(max-width:560px){.cinema-content{padding:18px 8px}.cinema-monogram{width:78px;height:78px;font-size:40px;margin:14px auto 14px}.cinema-content h2{font-size:clamp(42px,12vw,62px)}.cinema-bottom{margin-top:18px}.cinema-enter{padding:11px 15px}}
+@media(prefers-reduced-motion:reduce){.cinema-intro{display:none!important}}
 </style>
 </head>
 <body>
 
 <div class="cinema-intro" id="cinemaIntro" aria-label="La Reina cinematic introduction">
-  <div class="cinema-backdrop"></div><div class="cinema-vignette"></div><div class="cinema-grain"></div><div class="cinema-beam"></div>
-  <div class="cinema-orbit"><span class="cinema-orbit-dot"></span></div>
-  <div class="cinema-side left">A FEAST FOR THE SENSES · LA REINA</div><div class="cinema-side right">KAKAMEGA · KENYA · EST. WITH HEART</div>
-  <div class="cinema-card card-a"><strong>Made to gather.</strong><small>Good food, good people</small></div>
-  <div class="cinema-card card-b"><strong>Every detail.</strong><small>Thoughtfully prepared</small></div>
-  <div class="cinema-card card-c"><strong>Every moment.</strong><small>Worth remembering</small></div>
+  <div class="cinema-backdrop"></div><div class="cinema-vignette"></div><div class="cinema-grain"></div>
+
   <div class="cinema-content"><div class="cinema-overline"><span></span> LA REINA CATERERS <span></span></div>
     <div class="cinema-monogram">LR</div><div class="cinema-rule"></div>
     <p class="cinema-pretitle">THE ART OF GATHERING</p><h2><span class="cinema-line"><span>Every table</span></span><span class="cinema-line"><span>holds a <em>story.</em></span></span></h2>
@@ -104,9 +128,9 @@
 <main>
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="eyebrow">Kakamega, Kenya · Catering for the moments that matter</div>
+    <div class="eyebrow">Kakamega, Kenya · Thoughtful catering, made personal</div>
     <h1>Good food.<br>Better <em>gatherings.</em></h1>
-    <p class="hero-copy">Thoughtful menus, generous tables, and service that lets you be present. We bring the food, the care, and the calm to your next big moment.</p>
+    <p class="hero-copy">From family celebrations to corporate gatherings, we shape the menu and service around your occasion — so you can spend less time organising and more time at the table.</p>
     <div class="hero-actions"><a class="btn btn-primary" href="#contact">Let's plan together <span class="arrow">↗</span></a><a class="btn btn-plain" href="#gallery">See our work <span class="arrow">↓</span></a></div>
     <div class="hero-note"><span class="note-dot"></span> Weddings · Celebrations · Corporate tables</div>
   </div>
@@ -169,7 +193,7 @@
       <div class="contact-details">
         <div class="contact-line"><span class="contact-icon">↗</span><span>Kakamega, Kenya · Serving Kakamega and beyond</span></div>
         <div class="contact-line"><span class="contact-icon">✉</span><a href="mailto:lareinacaterers@gmail.com">lareinacaterers@gmail.com</a></div>
-        <div class="contact-line"><span class="contact-icon">☎</span><span>+254 700 000 000</span></div>
+        <div class="contact-line"><span class="contact-icon">☎</span><a href="tel:+254784128958" aria-label="Call La Reina Caterers">+254 784 128 958</a></div>
       </div>
     </div>
     <form class="booking-card reveal" id="bookingForm">
@@ -180,7 +204,7 @@
       <div class="field"><label for="guests">Approximate guest count</label><input id="guests" name="guests" inputmode="numeric" placeholder="e.g. 60"></div>
       <div class="field"><label for="details">A few details</label><textarea id="details" name="details" placeholder="Location, menu ideas, budget or anything we should know"></textarea></div>
       <button class="btn btn-primary" type="submit">Prepare enquiry <span class="arrow">↗</span></button>
-      <div class="form-note">This opens a pre-filled WhatsApp message. No information is sent until you choose to send it.</div>
+      <div class="form-note">Your details are arranged into a WhatsApp enquiry. Nothing is sent until you choose to send it.</div>
     </form>
   </div>
 </section>
@@ -196,15 +220,15 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classLi
 document.getElementById('year').textContent=new Date().getFullYear();
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.currentTarget);const lines=['Hello La Reina Caterers, I would like to enquire about catering.','',`Name: ${f.get('name')}`,`Event: ${f.get('event')}`,`Date: ${f.get('date')||'Not confirmed yet'}`,`Estimated guests: ${f.get('guests')||'Not sure yet'}`,`Details: ${f.get('details')||'I would like to discuss options.'}`];window.open('https://wa.me/254700000000?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener,noreferrer')});
+document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.currentTarget);const lines=['Hello La Reina Caterers, I would like to enquire about catering.','',`Name: ${f.get('name')}`,`Event: ${f.get('event')}`,`Date: ${f.get('date')||'Not confirmed yet'}`,`Estimated guests: ${f.get('guests')||'Not sure yet'}`,`Details: ${f.get('details')||'I would like to discuss options.'}`];window.open('https://wa.me/254784128958?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener,noreferrer')});
 
 const cinemaIntro=document.getElementById('cinemaIntro');
 const cinemaBackdrop=document.querySelector('.cinema-backdrop');
 const heroImage=document.querySelector('.hero-photo img');
 if(cinemaBackdrop&&heroImage) cinemaBackdrop.style.backgroundImage=`url("${heroImage.src}")`;
 const leaveIntro=()=>{if(!cinemaIntro||cinemaIntro.classList.contains('is-leaving'))return;cinemaIntro.classList.add('is-leaving');setTimeout(()=>cinemaIntro.remove(),1200)};
-// Let the complete choreographed sequence play; the enter control remains available.
-const introTimer=setTimeout(leaveIntro,9000);
+// A concise brand reveal: the page becomes usable almost immediately.
+const introTimer=setTimeout(leaveIntro,3200);
 document.getElementById('cinemaEnter')?.addEventListener('click',e=>{e.stopPropagation();clearTimeout(introTimer);leaveIntro()});
 cinemaIntro?.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter'){clearTimeout(introTimer);leaveIntro()}});
 
